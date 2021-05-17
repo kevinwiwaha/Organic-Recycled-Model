@@ -55,7 +55,11 @@ validation_generator = test_datagen.flow_from_directory(validation_dir,
 history = model.fit(
     train_generator,
 
-    steps_per_epoch=10,
-    epochs=5,
+    steps_per_epoch=100,
+    epochs=20,
 
     verbose=1)
+
+saved_model_path = "./{}.h5".format(int(time.time()))
+
+model.save(saved_model_path)
